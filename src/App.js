@@ -16,9 +16,7 @@ function App() {
   });
   return (
     <ThemeProvider theme={theme}>
-      <Button variant="contained" color="secondary">
-        Click para jogar
-      </Button>
+      <div style={{ background: "red", height: "100vh" }}></div>
     </ThemeProvider>
   );
 }
