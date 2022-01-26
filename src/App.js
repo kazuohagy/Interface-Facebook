@@ -1,13 +1,11 @@
-import logo from "./logo.svg";
-import "./App.css";
 import React from "react";
-
-import { Button, ThemeProvider, createMuiTheme } from "@material-ui/core";
+import reactDom from "react-dom";
+import { Button } from "@mui/material";
 
 function App() {
   return (
-    <Button variant="contained" color="success">
-      Success
+    <Button variant="contained" color="primary">
+      Pasdasdasd
     </Button>
   );
 }
