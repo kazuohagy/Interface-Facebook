@@ -5,9 +5,19 @@ import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import VideoCallIcon from "@mui/icons-material/VideoCall";
 import AppsIcon from "@mui/icons-material/Apps";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
+import Drawer from "@mui/material/Drawer";
+import List from "@mui/material/List";
+import ListItem from "@mui/material/ListItem";
+import ListItemText from "@mui/material/ListItemText";
+import InboxIcon from "@mui/icons-material/MoveToInbox";
+import Divider from "@mui/material/Divider";
+import MailIcon from "@mui/icons-material/Mail";
+import ListItemIcon from "@mui/material/ListItemIcon";
 
 import { AppBar, Button, Box, Toolbar, IconButton } from "@mui/material";
+import { ThermostatRounded } from "@mui/icons-material";
 
+const drawerWidth = 240;
 const useStyles = makeStyles((theme) => ({
   root: {
     height: "100vh",
@@ -44,7 +54,6 @@ export default function Home() {
               color="inherit"
               aria-label="menu"
               sx={{ mr: 2 }}
-              className={classes.MenuIcon}
             >
               <MenuIcon />
             </IconButton>
@@ -97,6 +106,45 @@ export default function Home() {
             </Button>
           </Toolbar>
         </AppBar>
+
+        <Drawer
+          variant="permanent"
+          sx={{
+            width: drawerWidth,
+            flexShrink: 0,
+            [`& .MuiDrawer-paper`]: {
+              width: drawerWidth,
+              boxSizing: "border-box",
+            },
+          }}
+        >
+          <Toolbar />
+          <Box sx={{ overflow: "auto" }}>
+            <List>
+              {["Inbox", "Starred", "Send email", "Drafts"].map(
+                (text, index) => (
+                  <ListItem button key={text}>
+                    <ListItemIcon>
+                      {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+                    </ListItemIcon>
+                    <ListItemText primary={text} />
+                  </ListItem>
+                )
+              )}
+            </List>
+            <Divider />
+            <List>
+              {["All mail", "Trash", "Spam"].map((text, index) => (
+                <ListItem button key={text}>
+                  <ListItemIcon>
+                    {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+                  </ListItemIcon>
+                  <ListItemText primary={text} />
+                </ListItem>
+              ))}
+            </List>
+          </Box>
+        </Drawer>
       </Box>
     </div>
   );
