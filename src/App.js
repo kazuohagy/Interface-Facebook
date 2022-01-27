@@ -14,10 +14,10 @@ function App() {
     spacing: 4,
     palette: {
       primary: {
-        main: "#FF69B4",
+        main: "#F8F8FF",
       },
       secondary: {
-        main: "#FF0000",
+        main: "#0000CD",
       },
     },
   });
