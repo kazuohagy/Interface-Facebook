@@ -1,7 +1,13 @@
 import React from "react";
-import reactDom from "react-dom";
-import { Button } from "@mui/material";
+//import reactDom from "react-dom";
+//import { Button } from "@mui/material";
+import Home from "./Home.js";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
+
+/*const myStyles = makeStyles({
+  root: {},
+});
+const classes = myStyles();*/
 
 function App() {
   const theme = createTheme({
@@ -16,7 +22,7 @@ function App() {
   });
   return (
     <ThemeProvider theme={theme}>
-      <div style={{ background: "red", height: "100vh" }}></div>
+      <Home></Home>
     </ThemeProvider>
   );
 }
