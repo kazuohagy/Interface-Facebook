@@ -1,5 +1,24 @@
-# Getting Started with Create React App
+# Ajuda para funcionar esse código :seedling:
 
+Então o mui vai mudando e os codigos talvez nao funcionem mais.\
+Essa ajuda vai pra quem nao sabe nada que nem eu.\
+
+## Comandos para usar no terminal :computer:
+
+### `npm install @mui/stlyes`
+
+Para baixar os estilos do mui
+
+### `npm install `
+
+Para pegar o react.\
+
+### `npm start `
+
+Para iniciar o react no local host.\
+
+Bom é isso que eu sei ate agora. em baixo tem explicação
+em inglês. Que eu não sei pra que serve :laughing:
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
