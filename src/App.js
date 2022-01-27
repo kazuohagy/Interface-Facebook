@@ -11,6 +11,7 @@ const classes = myStyles();*/
 
 function App() {
   const theme = createTheme({
+    spacing: 4,
     palette: {
       primary: {
         main: "#FF69B4",
@@ -20,7 +21,11 @@ function App() {
       },
     },
   });
-  return <Home />;
+  return (
+    <ThemeProvider theme={theme}>
+      <Home />{" "}
+    </ThemeProvider>
+  );
 }
 
 export default App;
