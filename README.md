@@ -9,6 +9,10 @@ Essa ajuda vai pra quem nao sabe nada que nem eu.\
 
 Para baixar os estilos do mui
 
+### `npm install @mui/icons-material`
+
+Para baixar o icone do botão :suspect:
+
 ### `npm install `
 
 Para pegar o react.\
