@@ -24,6 +24,15 @@ const useStyles = makeStyles((theme) => ({
   },
   appBar: {
     boxShadow: "none",
+    zIndex: theme.zIndex.drawer + 1,
+  },
+  drawer: {
+    width: 240,
+    flexShrink: 0,
+  },
+  drawerPaper: {
+    width: 240,
+    borderRight: "none",
   },
   icons: {
     padding: theme.spacing(5),
@@ -45,8 +54,12 @@ export default function Home() {
   return (
     <div className={classes.root}>
       {" "}
-      <Box sx={{ flexGrow: 1 }}>
-        <AppBar color="inherit" className={classes.appBar}>
+      <Box>
+        <AppBar
+          color="inherit"
+          sx={{ boxShadow: 1 }}
+          className={classes.appBar}
+        >
           <Toolbar>
             <IconButton
               size="large"
