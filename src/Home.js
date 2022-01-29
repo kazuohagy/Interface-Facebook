@@ -13,7 +13,9 @@ import InboxIcon from "@mui/icons-material/MoveToInbox";
 import Divider from "@mui/material/Divider";
 import MailIcon from "@mui/icons-material/Mail";
 import ListItemIcon from "@mui/material/ListItemIcon";
-
+import HomeIcon from "@mui/icons-material/Home";
+import SubscriptionsIcon from "@mui/icons-material/Subscriptions";
+import LocalFireDepartmentIcon from "@mui/icons-material/LocalFireDepartment";
 import { AppBar, Button, Box, Toolbar, IconButton } from "@mui/material";
 //import { ThermostatRounded } from "@mui/icons-material";
 
@@ -104,16 +106,27 @@ export default function Home() {
           <Toolbar />
           <Box sx={{ overflow: "auto" }}>
             <List>
-              {["Inbox", "Starred", "Send email", "Drafts"].map(
-                (text, index) => (
-                  <ListItem button key={text}>
-                    <ListItemIcon>
-                      {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-                    </ListItemIcon>
-                    <ListItemText primary={text} />
-                  </ListItem>
-                )
-              )}
+              <ListItem button>
+                <ListItemIcon>{<HomeIcon />}</ListItemIcon>
+                <ListItemText
+                  classes={{ primary: classes.listItemText }}
+                  primary={"Início"}
+                />
+              </ListItem>
+              <ListItem button>
+                <ListItemIcon>{<LocalFireDepartmentIcon />}</ListItemIcon>
+                <ListItemText
+                  classes={{ primary: classes.listItemText }}
+                  primary={"Em alta"}
+                />
+              </ListItem>
+              <ListItem button>
+                <ListItemIcon>{<SubscriptionsIcon />}</ListItemIcon>
+                <ListItemText
+                  classes={{ primary: classes.listItemText }}
+                  primary={"Inscrições"}
+                />
+              </ListItem>
             </List>
             <Divider />
             <List>
