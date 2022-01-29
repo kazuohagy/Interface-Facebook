@@ -46,6 +46,9 @@ const useStyles = makeStyles((theme) => ({
   logo: {
     height: 25,
   },
+  listItemText: {
+    fontSize: 14,
+  },
 }));
 
 export default function Home() {
@@ -119,7 +122,10 @@ export default function Home() {
                   <ListItemIcon>
                     {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
                   </ListItemIcon>
-                  <ListItemText primary={text} />
+                  <ListItemText
+                    classes={{ primary: classes.listItemText }}
+                    primary={text}
+                  />
                 </ListItem>
               ))}
             </List>
