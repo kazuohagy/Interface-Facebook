@@ -14,13 +14,14 @@ function App() {
     spacing: 4,
     palette: {
       primary: {
-        main: "#F8F8FF",
+        main: "#f44336",
       },
       secondary: {
-        main: "#0000CD",
+        main: "#3EA6FF",
       },
     },
   });
+
   return (
     <ThemeProvider theme={theme}>
       <Home />{" "}
