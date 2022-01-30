@@ -51,6 +51,10 @@ const useStyles = makeStyles((theme) => ({
   listItemText: {
     fontSize: 14,
   },
+  listItem: {
+    paddingTop: 4,
+    paddingBottom: 4,
+  },
 }));
 
 export default function Home() {
@@ -106,21 +110,21 @@ export default function Home() {
           <Toolbar />
           <Box sx={{ overflow: "auto" }}>
             <List>
-              <ListItem button>
+              <ListItem button classes={{ root: classes.listItem }}>
                 <ListItemIcon>{<HomeIcon />}</ListItemIcon>
                 <ListItemText
                   classes={{ primary: classes.listItemText }}
                   primary={"Início"}
                 />
               </ListItem>
-              <ListItem button>
+              <ListItem button classes={{ root: classes.listItem }}>
                 <ListItemIcon>{<LocalFireDepartmentIcon />}</ListItemIcon>
                 <ListItemText
                   classes={{ primary: classes.listItemText }}
                   primary={"Em alta"}
                 />
               </ListItem>
-              <ListItem button>
+              <ListItem button classes={{ root: classes.listItem }}>
                 <ListItemIcon>{<SubscriptionsIcon />}</ListItemIcon>
                 <ListItemText
                   classes={{ primary: classes.listItemText }}
@@ -130,17 +134,22 @@ export default function Home() {
             </List>
             <Divider />
             <List>
-              {["All mail", "Trash", "Spam"].map((text, index) => (
-                <ListItem button key={text}>
-                  <ListItemIcon>
-                    {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-                  </ListItemIcon>
-                  <ListItemText
-                    classes={{ primary: classes.listItemText }}
-                    primary={text}
-                  />
-                </ListItem>
-              ))}
+              <ListItem button classes={{ root: classes.listItem }}>
+                <ListItemIcon>{}</ListItemIcon>
+                <ListItemText
+                  classes={{ primary: classes.listItemText }}
+                  primary={"Biblioteca"}
+                />
+              </ListItem>
+            </List>
+            <List>
+              <ListItem button classes={{ root: classes.listItem }}>
+                <ListItemIcon>{}</ListItemIcon>
+                <ListItemText
+                  classes={{ primary: classes.listItemText }}
+                  primary={"Histórico"}
+                />
+              </ListItem>
             </List>
           </Box>
         </Drawer>
