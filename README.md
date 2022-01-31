@@ -11,19 +11,17 @@ Para baixar os estilos do mui
 
 ### `npm install @mui/icons-material`
 
-Para baixar o icone do botão :suspect:
+Para baixar o icone do botão
 
 ### `npm install `
 
-Para pegar o react.\
+Para pegar o react.
 
 ### `npm start `
 
-Para iniciar o react no local host.\
+Para iniciar o react no local host.
 
-Bom é isso que eu sei ate agora. :laughing:
-
-## Imagens do site :shipit:
+## Imagens do site :milky_way:
 
 Modo claro :sun_with_face:
 
