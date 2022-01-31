@@ -16,7 +16,15 @@ import ListItemIcon from "@mui/material/ListItemIcon";
 import HomeIcon from "@mui/icons-material/Home";
 import SubscriptionsIcon from "@mui/icons-material/Subscriptions";
 import LocalFireDepartmentIcon from "@mui/icons-material/LocalFireDepartment";
-import { AppBar, Button, Box, Toolbar, IconButton } from "@mui/material";
+import {
+  AppBar,
+  Button,
+  Box,
+  Toolbar,
+  IconButton,
+  Hidden,
+  Switch,
+} from "@mui/material";
 import Typography from "@mui/material/Typography";
 import UpdateIcon from "@mui/icons-material/Update";
 import VideoLibraryIcon from "@mui/icons-material/VideoLibrary";
@@ -24,11 +32,13 @@ import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import AddCircle from "@mui/icons-material/AddCircle";
 import ListSubheader from "@mui/material/ListSubheader";
 import Grid from "@mui/material/Grid";
+import { useTheme } from "@mui/styles";
 //import { ThermostatRounded } from "@mui/icons-material";
 
 const useStyles = makeStyles((theme) => ({
   root: {
     height: "100vh",
+    backgroundColor: theme.palette.background.dark,
   },
   appBar: {
     zIndex: theme.zIndex.drawer + 1,
@@ -146,8 +156,9 @@ const videos = [
     thumb: "/images/thumb8.png",
   },
 ];
-export default function Home() {
+export default function Home({ darkMode, setDarkMode }) {
   const classes = useStyles();
+  const theme = useTheme();
   return (
     <div className={classes.root}>
       <AppBar color="inherit" sx={{ boxShadow: 0 }} className={classes.appBar}>
@@ -157,13 +168,21 @@ export default function Home() {
           </IconButton>
 
           <img
-            src="/images/preto.png"
+            src={
+              theme.palette.mode === "dark"
+                ? "/images/branco.png"
+                : "/images/preto.png"
+            }
             alt="logo"
             className={classes.logo}
           ></img>
 
           <div className={classes.grow}></div>
-
+          <Switch
+            value={darkMode}
+            onChange={() => setDarkMode(!darkMode)}
+            className={classes.icons}
+          />
           <IconButton className={classes.icons}>
             <VideoCallIcon></VideoCallIcon>
           </IconButton>
@@ -186,188 +205,190 @@ export default function Home() {
         </Toolbar>
       </AppBar>
       <Box display="flex">
-        <Drawer
-          className={classes.drawer}
-          variant="permanent"
-          classes={{ paper: classes.drawerPaper }}
-        >
-          <Toolbar />
-          <Box sx={{ overflow: "auto" }}>
-            <List>
-              <ListItem button classes={{ root: classes.listItem }}>
-                <ListItemIcon>{<HomeIcon />}</ListItemIcon>
-                <ListItemText
-                  classes={{ primary: classes.listItemText }}
-                  primary={"Início"}
-                />
-              </ListItem>
-              <ListItem button classes={{ root: classes.listItem }}>
-                <ListItemIcon>{<LocalFireDepartmentIcon />}</ListItemIcon>
-                <ListItemText
-                  classes={{ primary: classes.listItemText }}
-                  primary={"Em alta"}
-                />
-              </ListItem>
-              <ListItem button classes={{ root: classes.listItem }}>
-                <ListItemIcon>{<SubscriptionsIcon />}</ListItemIcon>
-                <ListItemText
-                  classes={{ primary: classes.listItemText }}
-                  primary={"Inscrições"}
-                />
-              </ListItem>
-            </List>
-            <Divider />
-            <List>
-              <ListItem button classes={{ root: classes.listItem }}>
-                <ListItemIcon>{<VideoLibraryIcon />}</ListItemIcon>
-                <ListItemText
-                  classes={{ primary: classes.listItemText }}
-                  primary={"Biblioteca"}
-                />
-              </ListItem>
-            </List>
-            <List>
-              <ListItem button classes={{ root: classes.listItem }}>
-                <ListItemIcon>{<UpdateIcon />}</ListItemIcon>
-                <ListItemText
-                  classes={{ primary: classes.listItemText }}
-                  primary={"Histórico"}
-                />
-              </ListItem>
-            </List>
-            <Divider />
-            <Box p={5}>
-              <Typography variant="body2">
-                Faça login para curtur vídeos, comentar e se inscrever.
-              </Typography>
-              <Box mt={2}>
-                <Button
-                  variant="outlined"
-                  color="secondary"
-                  startIcon={<AccountCircleIcon />}
-                >
-                  Fazer login
-                </Button>
+        <Hidden mdDown>
+          <Drawer
+            className={classes.drawer}
+            variant="permanent"
+            classes={{ paper: classes.drawerPaper }}
+          >
+            <Toolbar />
+            <Box sx={{ overflow: "auto" }}>
+              <List>
+                <ListItem button classes={{ root: classes.listItem }}>
+                  <ListItemIcon>{<HomeIcon />}</ListItemIcon>
+                  <ListItemText
+                    classes={{ primary: classes.listItemText }}
+                    primary={"Início"}
+                  />
+                </ListItem>
+                <ListItem button classes={{ root: classes.listItem }}>
+                  <ListItemIcon>{<LocalFireDepartmentIcon />}</ListItemIcon>
+                  <ListItemText
+                    classes={{ primary: classes.listItemText }}
+                    primary={"Em alta"}
+                  />
+                </ListItem>
+                <ListItem button classes={{ root: classes.listItem }}>
+                  <ListItemIcon>{<SubscriptionsIcon />}</ListItemIcon>
+                  <ListItemText
+                    classes={{ primary: classes.listItemText }}
+                    primary={"Inscrições"}
+                  />
+                </ListItem>
+              </List>
+              <Divider />
+              <List>
+                <ListItem button classes={{ root: classes.listItem }}>
+                  <ListItemIcon>{<VideoLibraryIcon />}</ListItemIcon>
+                  <ListItemText
+                    classes={{ primary: classes.listItemText }}
+                    primary={"Biblioteca"}
+                  />
+                </ListItem>
+              </List>
+              <List>
+                <ListItem button classes={{ root: classes.listItem }}>
+                  <ListItemIcon>{<UpdateIcon />}</ListItemIcon>
+                  <ListItemText
+                    classes={{ primary: classes.listItemText }}
+                    primary={"Histórico"}
+                  />
+                </ListItem>
+              </List>
+              <Divider />
+              <Box p={5}>
+                <Typography variant="body2">
+                  Faça login para curtur vídeos, comentar e se inscrever.
+                </Typography>
+                <Box mt={2}>
+                  <Button
+                    variant="outlined"
+                    color="secondary"
+                    startIcon={<AccountCircleIcon />}
+                  >
+                    Fazer login
+                  </Button>
+                </Box>
               </Box>
+              <Divider />
+              <List
+                component="nav"
+                aria-labelledby="nested-list-subheader"
+                subheader={
+                  <ListSubheader
+                    component="div"
+                    id="nested-list-subheader"
+                    className={classes.subheader}
+                  >
+                    O Melhor do youtube
+                  </ListSubheader>
+                }
+              >
+                <ListItem button classes={{ root: classes.listItem }}>
+                  <ListItemIcon>
+                    <AddCircle />
+                  </ListItemIcon>
+                  <ListItemText
+                    classes={{
+                      primary: classes.listItemText,
+                    }}
+                    primary={"Música"}
+                  />
+                </ListItem>
+                <ListItem button classes={{ root: classes.listItem }}>
+                  <ListItemIcon>
+                    <AddCircle />
+                  </ListItemIcon>
+                  <ListItemText
+                    classes={{
+                      primary: classes.listItemText,
+                    }}
+                    primary={"Esportes"}
+                  />
+                </ListItem>
+                <ListItem button classes={{ root: classes.listItem }}>
+                  <ListItemIcon>
+                    <AddCircle />
+                  </ListItemIcon>
+                  <ListItemText
+                    classes={{
+                      primary: classes.listItemText,
+                    }}
+                    primary={"Jogos"}
+                  />
+                </ListItem>
+                <ListItem button classes={{ root: classes.listItem }}>
+                  <ListItemIcon>
+                    <AddCircle />
+                  </ListItemIcon>
+                  <ListItemText
+                    classes={{
+                      primary: classes.listItemText,
+                    }}
+                    primary={"Filmes"}
+                  />
+                </ListItem>
+                <ListItem button classes={{ root: classes.listItem }}>
+                  <ListItemIcon>
+                    <AddCircle />
+                  </ListItemIcon>
+                  <ListItemText
+                    classes={{
+                      primary: classes.listItemText,
+                    }}
+                    primary={"Notícias"}
+                  />
+                </ListItem>
+                <ListItem button classes={{ root: classes.listItem }}>
+                  <ListItemIcon>
+                    <AddCircle />
+                  </ListItemIcon>
+                  <ListItemText
+                    classes={{
+                      primary: classes.listItemText,
+                    }}
+                    primary={"Ao vivo"}
+                  />
+                </ListItem>
+                <ListItem button classes={{ root: classes.listItem }}>
+                  <ListItemIcon>
+                    <AddCircle />
+                  </ListItemIcon>
+                  <ListItemText
+                    classes={{
+                      primary: classes.listItemText,
+                    }}
+                    primary={"Destaques"}
+                  />
+                </ListItem>
+                <ListItem button classes={{ root: classes.listItem }}>
+                  <ListItemIcon>
+                    <AddCircle />
+                  </ListItemIcon>
+                  <ListItemText
+                    classes={{
+                      primary: classes.listItemText,
+                    }}
+                    primary={"Videos 360"}
+                  />
+                </ListItem>
+              </List>
+              <Divider />
+              <ListItem button classes={{ root: classes.listItem }}>
+                <ListItemIcon>
+                  <AddCircle />
+                </ListItemIcon>
+                <ListItemText
+                  classes={{
+                    primary: classes.listItemText,
+                  }}
+                  primary={"Procurar mais"}
+                />
+              </ListItem>
+              <Divider />
             </Box>
-            <Divider />
-            <List
-              component="nav"
-              aria-labelledby="nested-list-subheader"
-              subheader={
-                <ListSubheader
-                  component="div"
-                  id="nested-list-subheader"
-                  className={classes.subheader}
-                >
-                  O Melhor do youtube
-                </ListSubheader>
-              }
-            >
-              <ListItem button classes={{ root: classes.listItem }}>
-                <ListItemIcon>
-                  <AddCircle />
-                </ListItemIcon>
-                <ListItemText
-                  classes={{
-                    primary: classes.listItemText,
-                  }}
-                  primary={"Música"}
-                />
-              </ListItem>
-              <ListItem button classes={{ root: classes.listItem }}>
-                <ListItemIcon>
-                  <AddCircle />
-                </ListItemIcon>
-                <ListItemText
-                  classes={{
-                    primary: classes.listItemText,
-                  }}
-                  primary={"Esportes"}
-                />
-              </ListItem>
-              <ListItem button classes={{ root: classes.listItem }}>
-                <ListItemIcon>
-                  <AddCircle />
-                </ListItemIcon>
-                <ListItemText
-                  classes={{
-                    primary: classes.listItemText,
-                  }}
-                  primary={"Jogos"}
-                />
-              </ListItem>
-              <ListItem button classes={{ root: classes.listItem }}>
-                <ListItemIcon>
-                  <AddCircle />
-                </ListItemIcon>
-                <ListItemText
-                  classes={{
-                    primary: classes.listItemText,
-                  }}
-                  primary={"Filmes"}
-                />
-              </ListItem>
-              <ListItem button classes={{ root: classes.listItem }}>
-                <ListItemIcon>
-                  <AddCircle />
-                </ListItemIcon>
-                <ListItemText
-                  classes={{
-                    primary: classes.listItemText,
-                  }}
-                  primary={"Notícias"}
-                />
-              </ListItem>
-              <ListItem button classes={{ root: classes.listItem }}>
-                <ListItemIcon>
-                  <AddCircle />
-                </ListItemIcon>
-                <ListItemText
-                  classes={{
-                    primary: classes.listItemText,
-                  }}
-                  primary={"Ao vivo"}
-                />
-              </ListItem>
-              <ListItem button classes={{ root: classes.listItem }}>
-                <ListItemIcon>
-                  <AddCircle />
-                </ListItemIcon>
-                <ListItemText
-                  classes={{
-                    primary: classes.listItemText,
-                  }}
-                  primary={"Destaques"}
-                />
-              </ListItem>
-              <ListItem button classes={{ root: classes.listItem }}>
-                <ListItemIcon>
-                  <AddCircle />
-                </ListItemIcon>
-                <ListItemText
-                  classes={{
-                    primary: classes.listItemText,
-                  }}
-                  primary={"Videos 360"}
-                />
-              </ListItem>
-            </List>
-            <Divider />
-            <ListItem button classes={{ root: classes.listItem }}>
-              <ListItemIcon>
-                <AddCircle />
-              </ListItemIcon>
-              <ListItemText
-                classes={{
-                  primary: classes.listItemText,
-                }}
-                primary={"Procurar mais"}
-              />
-            </ListItem>
-            <Divider />
-          </Box>
-        </Drawer>
+          </Drawer>
+        </Hidden>
 
         <Box p={8}>
           <Toolbar />
