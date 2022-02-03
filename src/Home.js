@@ -339,9 +339,13 @@ export default function Home({ darkMode, setDarkMode }) {
               color: "black",
             }}
           >
-            <Avatar alt="Remy Sharp" src="images/miranha.jpg">
-              Criar story
-            </Avatar>
+            <Grid container justifyContent="center">
+              <Grid item>
+                <p>mario</p>
+                <Avatar alt="Remy Sharp" src="images/miranha.jpg"></Avatar>
+                <p>mario</p>
+              </Grid>
+            </Grid>
 
             <Typography variant="subtitle1" gutterBottom component="div">
               Compartilhar uma foto ou escreva algo
