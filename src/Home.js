@@ -12,7 +12,9 @@ import ListItemText from "@mui/material/ListItemText";
 import AddIcon from "@mui/icons-material/Add";
 import Divider from "@mui/material/Divider";
 import Avatar from "@mui/material/Avatar";
-
+import OndemandVideoIcon from "@mui/icons-material/OndemandVideo";
+import PhotoLibraryIcon from "@mui/icons-material/PhotoLibrary";
+import TagFacesIcon from "@mui/icons-material/TagFaces";
 import ListItemIcon from "@mui/material/ListItemIcon";
 
 import SubscriptionsIcon from "@mui/icons-material/Subscriptions";
@@ -36,7 +38,7 @@ import AddCircle from "@mui/icons-material/AddCircle";
 import ListSubheader from "@mui/material/ListSubheader";
 import Grid from "@mui/material/Grid";
 import InputBase from "@mui/material/InputBase";
-import { pink } from "@mui/material/colors";
+import { pink, yellow } from "@mui/material/colors";
 import GroupIcon from "@mui/icons-material/Group";
 import FlagIcon from "@mui/icons-material/Flag";
 import NotificationsIcon from "@mui/icons-material/Notifications";
@@ -387,39 +389,39 @@ export default function Home({ darkMode, setDarkMode }) {
                 <Avatar alt="Remy Sharp" src="images/miranha.jpg"></Avatar>
               </IconButton>{" "}
               <IconButton>No que você está pensando, Japaranha?</IconButton>
-              {}
-              <TextField
-                id="outlined-basic"
-                label="No que  você está pensando, Japaranha?"
-                variant="outlined"
-                color="secondary"
-              />
-              <Box sx={{ display: { xs: "none", md: "flex" } }}>
-                <Search>
-                  <IconButton>
-                    <SearchIconWrapper>
-                      <SearchIcon />
-                    </SearchIconWrapper>
-                  </IconButton>
-                  <StyledInputBase
-                    placeholder="Search…"
-                    inputProps={{ "aria-label": "search" }}
-                  />
-                </Search>
-              </Box>
             </Box>
 
             <Grid container justifyContent="center">
               <Grid item>
-                <p>mario</p>
-
-                <p>mario</p>
+                <Button>
+                  <OndemandVideoIcon sx={{ marginRight: 2 }} />
+                  <Typography color={"#696969"}>Video ao vivo</Typography>
+                </Button>
+                <Button>
+                  <PhotoLibraryIcon sx={{ marginRight: 2, color: "#32CD32" }} />
+                  <Typography color={"#696969"}>Foto/video</Typography>
+                </Button>
+                <Button>
+                  <TagFacesIcon sx={{ marginRight: 2, color: "#FFD700" }} />
+                  <Typography color={"#696969"}>
+                    Sentimento/atividade
+                  </Typography>
+                </Button>
               </Grid>
             </Grid>
-
-            <Typography variant="subtitle1" gutterBottom component="div">
-              Compartilhar uma foto ou escreva algo
-            </Typography>
+          </Box>
+          <Box
+            sx={{
+              p: 2,
+              bgcolor: "#FFFFFF",
+              color: "black",
+              margin: 8,
+            }}
+          >
+            <Button>
+              <OndemandVideoIcon sx={{ marginRight: 2 }} />
+              <Typography color={"#696969"}>Criar sala</Typography>
+            </Button>
           </Box>
         </Box>
       </Box>
