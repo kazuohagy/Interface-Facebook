@@ -5,6 +5,8 @@ import HomeIcon from "@mui/icons-material/Home";
 import VideoCallIcon from "@mui/icons-material/VideoCall";
 import AppsIcon from "@mui/icons-material/Apps";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
+import GroupsIcon from "@mui/icons-material/Groups";
+import StorefrontIcon from "@mui/icons-material/Storefront";
 import Drawer from "@mui/material/Drawer";
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
@@ -34,8 +36,10 @@ import Typography from "@mui/material/Typography";
 import UpdateIcon from "@mui/icons-material/Update";
 import VideoLibraryIcon from "@mui/icons-material/VideoLibrary";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
+import PeopleAltIcon from "@mui/icons-material/PeopleAlt";
 import AddCircle from "@mui/icons-material/AddCircle";
 import ListSubheader from "@mui/material/ListSubheader";
+import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
 import Grid from "@mui/material/Grid";
 import InputBase from "@mui/material/InputBase";
 import { pink, yellow } from "@mui/material/colors";
@@ -258,14 +262,16 @@ export default function Home({ darkMode, setDarkMode }) {
                 />
               </ListItem>
               <ListItem button classes={{ root: classes.listItem }}>
-                <ListItemIcon>{<LocalFireDepartmentIcon />}</ListItemIcon>
+                <ListItemIcon>
+                  {<PeopleAltIcon sx={{ color: "blue" }} />}
+                </ListItemIcon>
                 <ListItemText
                   classes={{ primary: classes.listItemText }}
                   primary={"Encontrar amigos"}
                 />
               </ListItem>
               <ListItem button classes={{ root: classes.listItem }}>
-                <ListItemIcon>{<SubscriptionsIcon />}</ListItemIcon>
+                <ListItemIcon>{<GroupsIcon />}</ListItemIcon>
                 <ListItemText
                   classes={{ primary: classes.listItemText }}
                   primary={"Grupos"}
@@ -275,7 +281,7 @@ export default function Home({ darkMode, setDarkMode }) {
 
             <List>
               <ListItem button classes={{ root: classes.listItem }}>
-                <ListItemIcon>{<VideoLibraryIcon />}</ListItemIcon>
+                <ListItemIcon>{<StorefrontIcon />}</ListItemIcon>
                 <ListItemText
                   classes={{ primary: classes.listItemText }}
                   primary={"Marketplace"}
@@ -419,9 +425,24 @@ export default function Home({ darkMode, setDarkMode }) {
             }}
           >
             <Button>
-              <OndemandVideoIcon sx={{ marginRight: 2 }} />
+              <VideoCallIcon sx={{ marginRight: 2, color: "#6A5ACD" }} />
               <Typography color={"#696969"}>Criar sala</Typography>
             </Button>
+          </Box>
+
+          <Box
+            sx={{
+              p: 2,
+              bgcolor: "#FFFFFF",
+              color: "black",
+              margin: 8,
+            }}
+          >
+            <Typography></Typography>
+            Pessoas que você talvez conheça
+            <IconButton>
+              <MoreHorizIcon />
+            </IconButton>
           </Box>
         </Box>
       </Box>
