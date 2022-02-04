@@ -35,13 +35,55 @@ import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import AddCircle from "@mui/icons-material/AddCircle";
 import ListSubheader from "@mui/material/ListSubheader";
 import Grid from "@mui/material/Grid";
-
+import InputBase from "@mui/material/InputBase";
 import { pink } from "@mui/material/colors";
 import GroupIcon from "@mui/icons-material/Group";
 import FlagIcon from "@mui/icons-material/Flag";
 import NotificationsIcon from "@mui/icons-material/Notifications";
+import TextField from "@mui/material/TextField";
 //import { ThermostatRounded } from "@mui/icons-material";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
+import { alpha } from "@mui/material/styles";
+const StyledInputBase = styled(InputBase)(({ theme }) => ({
+  color: "inherit",
+  "& .MuiInputBase-input": {
+    padding: theme.spacing(1, 1, 1, 0),
+    // vertical padding + font size from searchIcon
+    paddingLeft: `calc(1em + ${theme.spacing(4)})`,
+    transition: theme.transitions.create("width"),
+    width: "100%",
+    [theme.breakpoints.up("sm")]: {
+      width: "12ch",
+      "&:focus": {
+        width: "20ch",
+      },
+    },
+  },
+}));
+const Search = styled("div")(({ theme }) => ({
+  position: "relative",
+  borderRadius: theme.shape.borderRadius,
+  backgroundColor: alpha(theme.palette.common.white, 0.15),
+  "&:hover": {
+    backgroundColor: alpha(theme.palette.common.white, 0.25),
+  },
+  marginLeft: 0,
+  width: "100%",
+  [theme.breakpoints.up("sm")]: {
+    marginLeft: theme.spacing(1),
+    width: "auto",
+  },
+}));
+
+const SearchIconWrapper = styled("div")(({ theme }) => ({
+  padding: theme.spacing(0, 2),
+  height: "100%",
+  position: "absolute",
+  pointerEvents: "none",
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "center",
+}));
 const DrawerHeader = styled("div")(({ theme }) => ({
   display: "flex",
   alignItems: "center",
@@ -337,12 +379,40 @@ export default function Home({ darkMode, setDarkMode }) {
               p: 2,
               bgcolor: "#FFFFFF",
               color: "black",
+              margin: 8,
             }}
           >
+            <Box sx={{ flexGrow: 1 }}>
+              <IconButton>
+                <Avatar alt="Remy Sharp" src="images/miranha.jpg"></Avatar>
+              </IconButton>{" "}
+              <IconButton>No que você está pensando, Japaranha?</IconButton>
+              {}
+              <TextField
+                id="outlined-basic"
+                label="No que  você está pensando, Japaranha?"
+                variant="outlined"
+                color="secondary"
+              />
+              <Box sx={{ display: { xs: "none", md: "flex" } }}>
+                <Search>
+                  <IconButton>
+                    <SearchIconWrapper>
+                      <SearchIcon />
+                    </SearchIconWrapper>
+                  </IconButton>
+                  <StyledInputBase
+                    placeholder="Search…"
+                    inputProps={{ "aria-label": "search" }}
+                  />
+                </Search>
+              </Box>
+            </Box>
+
             <Grid container justifyContent="center">
               <Grid item>
                 <p>mario</p>
-                <Avatar alt="Remy Sharp" src="images/miranha.jpg"></Avatar>
+
                 <p>mario</p>
               </Grid>
             </Grid>
