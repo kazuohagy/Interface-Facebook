@@ -3,9 +3,13 @@ import { makeStyles } from "@mui/styles";
 import MenuIcon from "@mui/icons-material/Menu";
 import HomeIcon from "@mui/icons-material/Home";
 import VideoCallIcon from "@mui/icons-material/VideoCall";
+import ImageListItemBar from "@mui/material/ImageListItemBar";
+import StarIcon from "@mui/icons-material/Star";
 import AppsIcon from "@mui/icons-material/Apps";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
 import GroupsIcon from "@mui/icons-material/Groups";
+import LocalActivityIcon from "@mui/icons-material/LocalActivity";
+import FlagIcon from "@mui/icons-material/Flag";
 import StorefrontIcon from "@mui/icons-material/Storefront";
 import Drawer from "@mui/material/Drawer";
 import List from "@mui/material/List";
@@ -18,10 +22,14 @@ import OndemandVideoIcon from "@mui/icons-material/OndemandVideo";
 import PhotoLibraryIcon from "@mui/icons-material/PhotoLibrary";
 import TagFacesIcon from "@mui/icons-material/TagFaces";
 import ListItemIcon from "@mui/material/ListItemIcon";
+import BookmarkIcon from "@mui/icons-material/Bookmark";
 
 import SubscriptionsIcon from "@mui/icons-material/Subscriptions";
 import LocalFireDepartmentIcon from "@mui/icons-material/LocalFireDepartment";
 import SearchIcon from "@mui/icons-material/Search";
+import AccessTimeFilledIcon from "@mui/icons-material/AccessTimeFilled";
+import ImageList from "@mui/material/ImageList";
+import ImageListItem from "@mui/material/ImageListItem";
 import {
   AppBar,
   Button,
@@ -44,12 +52,28 @@ import Grid from "@mui/material/Grid";
 import InputBase from "@mui/material/InputBase";
 import { pink, yellow } from "@mui/material/colors";
 import GroupIcon from "@mui/icons-material/Group";
-import FlagIcon from "@mui/icons-material/Flag";
+
 import NotificationsIcon from "@mui/icons-material/Notifications";
 import TextField from "@mui/material/TextField";
 //import { ThermostatRounded } from "@mui/icons-material";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 import { alpha } from "@mui/material/styles";
+import { FormatBold, HorizontalRule } from "@mui/icons-material";
+import { display, flexbox } from "@mui/system";
+const itemData = [
+  {
+    img: "https://th.bing.com/th/id/OIP.iHBC4qafIiXEbKST6EZ7YgHaIc?pid=ImgDet&rs=1",
+    title: "Mario",
+  },
+  {
+    img: "https://th.bing.com/th/id/R.e30222f12bee6f4db8111f7bc7a42157?rik=S2VZvHvdxJiAhg&pid=ImgRaw&r=0",
+    title: "Luigi",
+  },
+  {
+    img: "https://th.bing.com/th/id/OIP.hVvYqKNOPGbI0eNkR0g9NQHaG4?pid=ImgDet&rs=1",
+    title: "Bowser",
+  },
+];
 const StyledInputBase = styled(InputBase)(({ theme }) => ({
   color: "inherit",
   "& .MuiInputBase-input": {
@@ -255,7 +279,9 @@ export default function Home({ darkMode, setDarkMode }) {
           <Box sx={{ overflow: "auto" }}>
             <List>
               <ListItem button classes={{ root: classes.listItem }}>
-                <ListItemIcon>{<HomeIcon />}</ListItemIcon>
+                <ListItemIcon>
+                  <Avatar alt="Remy Sharp" src="images/miranha.jpg"></Avatar>
+                </ListItemIcon>
                 <ListItemText
                   classes={{ primary: classes.listItemText }}
                   primary={"Japaranha Aranha"}
@@ -295,7 +321,7 @@ export default function Home({ darkMode, setDarkMode }) {
             <List>
               <ListItem button classes={{ root: classes.listItem }}>
                 <ListItemIcon>
-                  {<UpdateIcon sx={{ color: "#00BFFF" }} />}
+                  <VideoCallIcon sx={{ color: "#00BFFF" }} />
                 </ListItemIcon>
                 <ListItemText
                   classes={{ primary: classes.listItemText }}
@@ -306,7 +332,9 @@ export default function Home({ darkMode, setDarkMode }) {
 
             <List>
               <ListItem button classes={{ root: classes.listItem }}>
-                <ListItemIcon>{<VideoLibraryIcon />}</ListItemIcon>
+                <ListItemIcon>
+                  {<UpdateIcon sx={{ color: "#00BFFF" }} />}
+                </ListItemIcon>
                 <ListItemText
                   classes={{ primary: classes.listItemText }}
                   primary={"Lembrança"}
@@ -315,7 +343,9 @@ export default function Home({ darkMode, setDarkMode }) {
             </List>
             <List>
               <ListItem button classes={{ root: classes.listItem }}>
-                <ListItemIcon>{<VideoLibraryIcon />}</ListItemIcon>
+                <ListItemIcon>
+                  {<BookmarkIcon sx={{ color: "#A020F0" }} />}
+                </ListItemIcon>
                 <ListItemText
                   classes={{ primary: classes.listItemText }}
                   primary={"Salvos"}
@@ -324,7 +354,9 @@ export default function Home({ darkMode, setDarkMode }) {
             </List>
             <List>
               <ListItem button classes={{ root: classes.listItem }}>
-                <ListItemIcon>{<VideoLibraryIcon />}</ListItemIcon>
+                <ListItemIcon>
+                  {<FlagIcon sx={{ color: "orange" }} />}
+                </ListItemIcon>
                 <ListItemText
                   classes={{ primary: classes.listItemText }}
                   primary={"Paginas"}
@@ -333,7 +365,9 @@ export default function Home({ darkMode, setDarkMode }) {
             </List>
             <List>
               <ListItem button classes={{ root: classes.listItem }}>
-                <ListItemIcon>{<VideoLibraryIcon />}</ListItemIcon>
+                <ListItemIcon>
+                  {<LocalActivityIcon sx={{ color: "red" }} />}
+                </ListItemIcon>
                 <ListItemText
                   classes={{ primary: classes.listItemText }}
                   primary={"Eventos"}
@@ -342,7 +376,9 @@ export default function Home({ darkMode, setDarkMode }) {
             </List>
             <List>
               <ListItem button classes={{ root: classes.listItem }}>
-                <ListItemIcon>{<VideoLibraryIcon />}</ListItemIcon>
+                <ListItemIcon>
+                  {<AccessTimeFilledIcon sx={{ color: "#00BFFF" }} />}
+                </ListItemIcon>
                 <ListItemText
                   classes={{ primary: classes.listItemText }}
                   primary={"Mais recentes"}
@@ -351,7 +387,9 @@ export default function Home({ darkMode, setDarkMode }) {
             </List>
             <List>
               <ListItem button classes={{ root: classes.listItem }}>
-                <ListItemIcon>{<VideoLibraryIcon />}</ListItemIcon>
+                <ListItemIcon>
+                  {<StarIcon sx={{ color: "yellow" }} />}
+                </ListItemIcon>
                 <ListItemText
                   classes={{ primary: classes.listItemText }}
                   primary={"Favoritos"}
@@ -360,7 +398,7 @@ export default function Home({ darkMode, setDarkMode }) {
             </List>
             <List>
               <ListItem button classes={{ root: classes.listItem }}>
-                <ListItemIcon>{<VideoLibraryIcon />}</ListItemIcon>
+                <ListItemIcon>{<ArrowDropDownIcon />}</ListItemIcon>
                 <ListItemText
                   classes={{ primary: classes.listItemText }}
                   primary={"Ver mais"}
@@ -428,6 +466,7 @@ export default function Home({ darkMode, setDarkMode }) {
               bgcolor: "#FFFFFF",
               color: "black",
               margin: 8,
+              flexGrow: 1,
             }}
           >
             <Button>
@@ -444,11 +483,61 @@ export default function Home({ darkMode, setDarkMode }) {
               margin: 8,
             }}
           >
-            <Typography></Typography>
-            Pessoas que você talvez conheça
-            <IconButton>
-              <MoreHorizIcon />
-            </IconButton>
+            <ImageList
+              sx={{ width: 500, height: 450 }}
+              cols={3}
+              rowHeight={164}
+            >
+              <Typography variant="subtitle1">
+                {" "}
+                Pessoas que você talvez conheça
+              </Typography>
+              <div className={classes.grow}></div>
+              <IconButton>
+                <MoreHorizIcon></MoreHorizIcon>
+              </IconButton>
+              {itemData.map((item) => (
+                <ImageListItem key={item.img}>
+                  <img
+                    src={`${item.img}?w=164&h=164&fit=crop&auto=format`}
+                    srcSet={`${item.img}?w=164&h=164&fit=crop&auto=format&dpr=2 2x`}
+                    alt={item.title}
+                    loading="lazy"
+                  />
+                  <ImageListItemBar title={item.title} />
+                </ImageListItem>
+              ))}
+              <Grid container justifyContent="right">
+                <Grid item>
+                  <Button sx={{ display: flexbox }}>Ver todos</Button>
+                </Grid>
+              </Grid>
+            </ImageList>
+          </Box>
+
+          <Box
+            sx={{
+              p: 2,
+              bgcolor: "#FFFFFF",
+              color: "black",
+              margin: 8,
+            }}
+          >
+            <Grid container justifyContent="center">
+              <Grid item>
+                <Typography variant="h5">
+                  {" "}
+                  Pessoas que você talvez conheça
+                </Typography>
+                <Typography variant="subtitle-1">
+                  {" "}
+                  Adicione mais amigos para ver mais publicações no seu Feed de
+                  Notícias.
+                </Typography>
+                <p />
+                <Button variant="contained">Encontrar amigos</Button>
+              </Grid>
+            </Grid>
           </Box>
         </Box>
       </Box>
