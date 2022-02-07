@@ -263,7 +263,7 @@ export default function Home({ darkMode, setDarkMode }) {
               </ListItem>
               <ListItem button classes={{ root: classes.listItem }}>
                 <ListItemIcon>
-                  {<PeopleAltIcon sx={{ color: "blue" }} />}
+                  {<PeopleAltIcon sx={{ color: "#00BFFF" }} />}
                 </ListItemIcon>
                 <ListItemText
                   classes={{ primary: classes.listItemText }}
@@ -271,7 +271,9 @@ export default function Home({ darkMode, setDarkMode }) {
                 />
               </ListItem>
               <ListItem button classes={{ root: classes.listItem }}>
-                <ListItemIcon>{<GroupsIcon />}</ListItemIcon>
+                <ListItemIcon>
+                  <GroupsIcon sx={{ color: "#00BFFF" }} />
+                </ListItemIcon>
                 <ListItemText
                   classes={{ primary: classes.listItemText }}
                   primary={"Grupos"}
@@ -281,7 +283,9 @@ export default function Home({ darkMode, setDarkMode }) {
 
             <List>
               <ListItem button classes={{ root: classes.listItem }}>
-                <ListItemIcon>{<StorefrontIcon />}</ListItemIcon>
+                <ListItemIcon>
+                  {<StorefrontIcon sx={{ color: "#00BFFF" }} />}
+                </ListItemIcon>
                 <ListItemText
                   classes={{ primary: classes.listItemText }}
                   primary={"Marketplace"}
@@ -290,7 +294,9 @@ export default function Home({ darkMode, setDarkMode }) {
             </List>
             <List>
               <ListItem button classes={{ root: classes.listItem }}>
-                <ListItemIcon>{<UpdateIcon />}</ListItemIcon>
+                <ListItemIcon>
+                  {<UpdateIcon sx={{ color: "#00BFFF" }} />}
+                </ListItemIcon>
                 <ListItemText
                   classes={{ primary: classes.listItemText }}
                   primary={"Watch"}
